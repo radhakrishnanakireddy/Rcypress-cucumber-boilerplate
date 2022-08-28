@@ -30,3 +30,8 @@ Install project dependencies with: npm i
 
 ## 🚀 Run the demo: 
 Open the terminal and run: npm run cypress:execution
+
+###
+Docker configuration
+- Added cucumber-json-formatter-linux-386 in root folder and renamed to cucumber-json-formatter
+- Now run the docker cmd : docker-compose run e2e npm run cukeReg
