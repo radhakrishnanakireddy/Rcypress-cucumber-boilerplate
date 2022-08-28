@@ -1,0 +1,31 @@
+FROM cypress/base:16.13.0
+
+RUN mkdir /Rcypress-cucumber-boilerplate
+WORKDIR /Rcypress-cucumber-boilerplate
+COPY . /Rcypress-cucumber-boilerplate
+
+USER root
+
+ENV PATH /Rcypress-cucumber-boilerplate/node_modules/.bin:$PATH
+
+RUN chmod +x /Rcypress-cucumber-boilerplate/cucumber-json-formatter
+
+
+USER root
+RUN npm install
+RUN npx cypress verify
+RUN mv /Rcypress-cucumber-boilerplate/cucumber-json-formatter /Rcypress-cucumber-boilerplate/node_modules/.bin
+
+
+
+# RUN npm install
+# RUN npx cypress verify
+
+# RUN echo $PATH
+
+# RUN npx run cukeReg
+
+# RUN chmod +x /Rcypress-cucumber-boilerplate/cucumber-json-formatter
+# RUN mv /Rcypress-cucumber-boilerplate/cucumber-json-formatter /Rcypress-cucumber-boilerplate/node_modules/.bin
+# RUN npm run report
+

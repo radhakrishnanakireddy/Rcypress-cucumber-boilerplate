@@ -1,0 +1,16 @@
+version: "3"
+
+# TODO, this is not finished, It needs to add the other services, e.g: frontend, backend etc.
+services:
+  # this container will run Cypress test using built-in Electron browser
+  e2e:
+    build: 
+      context: .
+      dockerfile: Dockerfile.ci
+    volumes:
+      - ./videos:/Rcypress-cucumber-boilerplate/cypress/videos
+      - ./jsonlogs:/Rcypress-cucumber-boilerplate/jsonlogs
+      - ./reports:/Rcypress-cucumber-boilerplate/reports
+
+
+
